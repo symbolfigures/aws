@@ -104,7 +104,7 @@ Get an RDS token as a user from another account.
 
 Create the role RDSCrossAccountAccessRole.
 
-Set the [Trust Policy](trust_policy.json) to allow `"Action": "sts:AssumeRole"` from the other account.
+Set the [Trust Policy](TrustPolicy.json) to allow `"Action": "sts:AssumeRole"` from the other account.
 
 Create the policy [RDSDatabaseConnectPolicy](RDSDatabaseConnectPolicy.json). Allow `"Action": "rds-db:connect"` for the specified database.
 
