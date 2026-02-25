@@ -1,5 +1,7 @@
 # RDS - Cross-Account IAM Authentication with MySQL Workbench
 
+![diagram](diagram.drawio.png)
+
 **Scenario:**
 Access to an RDS MySQL database is managed using traditional usernames and passwords. Users run MySQL Workbench from their workstations using connection method TCP/IP over SSH. Each user has their own AWS account.
 
