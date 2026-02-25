@@ -17,15 +17,15 @@ Connect with a username and password.
 
 ### 1.1. Build
 
-1.1.1. Create the RDS database in a private subnet. Set password authentication.
+Create the RDS database in a private subnet. Set password authentication.
 
-1.1.2. Launch an EC2 instance in a public subnet (the bastion host).
+Launch an EC2 instance in a public subnet (the bastion host).
 
-1.1.3. Install MySQL Workbench on your local machine.
+Install MySQL Workbench on your local machine.
 
 ### 1.2. Test
 
-1.2.1. SSH into the bastion host, and connect to the RDS database using the DNS name given in the RDS console. Create a database.
+SSH into the bastion host, and connect to the RDS database using the DNS name given in the RDS console. Create a database.
 
 ```
 $ ssh -p 22 -i path/to/key.pem ec2-user@22.33.44.55
@@ -39,7 +39,7 @@ $ exit
 
 ### 1.3. Connect
 
-1.3.1. Run MySQL Workbench and create a new connection.
+Run MySQL Workbench and create a new connection.
 
 Connection Name: ...
 Connection Method: Standard TCP/IP over SSH
@@ -53,7 +53,7 @@ Password: ...
 Error: `Could not store password: The name is not activatable`  
 Install a keyring. `$ sudo pacman -S gnome-keyring`
 
-1.3.2. Click on the new connection and enter the password. Show the databases.
+Click on the new connection and enter the password. Show the databases.
 
 ```
 $ SHOW DATABASES;
@@ -65,9 +65,9 @@ Connect with IAM credentials.
 
 ### 2.1. Configure
 
-2.1.1. RDS dashboard > Modify. Switch from "Password authentication" to "Password and IAM database authentication".
+RDS dashboard > Modify. Switch from "Password authentication" to "Password and IAM database authentication".
 
-2.1.3. From the EC2 instance, connect to the database and update the plugin from `caching_sha2_password` to `AWSAuthenticationPlugin`.
+From the EC2 instance, connect to the database and update the plugin from `caching_sha2_password` to `AWSAuthenticationPlugin`.
 
 ```
 $ SELECT User, Host, plugin FROM mysql.user WHERE User = 'admin';
@@ -76,14 +76,14 @@ $ ALTER USER 'admin'@'%' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
 
 ### 2.2. Connect
 
-2.2.1. From your local machine, login to the AWS CLI. Make sure a profile is setup for the account that owns the database.
+From your local machine, login to the AWS CLI. Make sure a profile is setup for the account that owns the database.
 
 ```
 $ aws sso login
 $ cat ~/.aws/config
 ```
 
-2.2.2. Generate an RDS token.
+Generate an RDS token.
 
 ```
 $ aws rds generate-db-auth-token \
@@ -94,7 +94,7 @@ $ aws rds generate-db-auth-token \
 	--profile <DB_ACCOUNT>
 ```
 
-2.2.3. Copy the response and use it as the password in MySQL Workbench.
+Copy the response and use it as the password in MySQL Workbench.
 
 ## 3. Cross-Account
 
@@ -102,19 +102,19 @@ Get an RDS token as a user from another account.
 
 ### 3.1. IAM Role - Database Account
 
-3.1.1. Create the role RDSCrossAccountAccessRole.
+Create the role RDSCrossAccountAccessRole.
 
-3.1.2. Set the [trust policy](trust_policy.json) to allow `"Action": "sts:AssumeRole"` from the other account.
+Set the [Trust Policy](trust_policy.json) to allow `"Action": "sts:AssumeRole"` from the other account.
 
-3.1.3. Create the policy [RDSDatabaseConnectPolicy](RDSDatabaseConnectPolicy.json). Allow `"Action": "rds-db:connect"` for the specified database.
+Create the policy [RDSDatabaseConnectPolicy](RDSDatabaseConnectPolicy.json). Allow `"Action": "rds-db:connect"` for the specified database.
 
 ### 3.2. IAM Role - User Account
 
-3.2.1. If the IAM user has limited account privileges, it may need the [AssumeCrossAccountRolePolicy](AssumeCrossAccountRolePolicy.json) policy attached to assume the role in the database account.
+If the IAM user has limited account privileges, it may need the [AssumeCrossAccountRolePolicy](AssumeCrossAccountRolePolicy.json) policy attached to assume the role in the database account.
 
 ### 3.3 Assume Role
 
-3.3.1. Assume the role from the user account.
+Assume the role from the user account.
 
 ```
 $ aws sts assume-role \
@@ -122,7 +122,7 @@ $ aws sts assume-role \
 	--role-session-name "WorkbenchSession"
 ```
 
-3.3.2. Save the response.
+Save the response.
 
 ```
 $ export AWS_ACCESS_KEY_ID="________________"
@@ -130,11 +130,11 @@ $ export AWS_SECRET_ACCESS_KEY="________________"
 $ export AWS_SESSION_TOKEN="________________"
 ```
 
-3.3.3. Ensure the database account's account ID is returned by STS.
+Ensure the database account's account ID is returned by STS.
 
 ```
 $ aws sts get-caller-identity
 ```
 
-3.3.4. Get an RDS token via `aws rds generate-db-auth-token` and connect.
+Get an RDS token via `aws rds generate-db-auth-token` and connect.
 
