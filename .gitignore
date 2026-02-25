@@ -1,3 +1,4 @@
+.gitignore
 rds-cross-account-iam-authentication/.ipynb_checkpoints
 rds-cross-account-iam-authentication/.gitignore
 rds-cross-account-iam-authentication/diagram.drawio
