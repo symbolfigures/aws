@@ -1,1 +1,1 @@
-Projects using AWS services.
+Studies in AWS architecture.
