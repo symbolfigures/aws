@@ -1,0 +1,38 @@
+{
+	"jobDefinitionName": "job_def_drawing_train",
+	"type": "container",
+	"platformCapabilities": ["EC2"],
+	"containerProperties": {
+		"image": "476322507760.dkr.ecr.us-west-2.amazonaws.com/drawing_train:latest",
+		"jobRoleArn": "arn:aws:iam::476322507760:role/ECSTaskRole-S3",
+		"executionRoleArn": "arn:aws:iam::476322507760:role/ECSTaskExecutionRole",
+		"resourceRequirements": [
+			{
+				"value": "4",
+				"type": "VCPU"
+			},
+			{
+				"value": "8192",
+				"type": "MEMORY"
+			},
+			{
+				"value": "1",
+				"type": "GPU"
+			}
+		],
+		"logConfiguration": {
+			"logDriver": "awslogs",
+			"options": {
+				"awslogs-group": "/aws/batch/job",
+				"awslogs-region": "us-west-2",
+				"awslogs-stream-prefix": "batch"
+			}
+		},
+		"environment": [
+		    {"name": "BUCKET", "value": "symbolfigures"},
+		    {"name": "KEY_IN_PREFIX", "value": "drawing/tfrecord/secondstudy"},
+		    {"name": "KEY_OUT_PREFIX", "value": "drawing/train/secondstudy/2025-10-14"},
+		    {"name": "TF_USE_LEGACY_KERAS", "value": "1"}
+		]
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "computeEnvironmentName": "compute_env_fargate",
+  "type": "MANAGED",
+  "state": "ENABLED",
+  "computeResources": {
+    "type": "FARGATE",
+    "maxvCpus": 256,
+    "subnets": [
+      "subnet-0ded8ee2cc6112b8c",
+      "subnet-0afb03c5e809b480b",
+      "subnet-00fe6abe529d766aa"
+    ], 
+    "securityGroupIds": ["sg-d0aeaf83"]
+  },
+  "serviceRole": "arn:aws:iam::476322507760:role/AWSBatchServiceRole"
+}

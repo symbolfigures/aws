@@ -1,0 +1,20 @@
+{
+  "computeEnvironmentName": "compute_env_ec2",
+  "type": "MANAGED",
+  "state": "ENABLED",
+  "computeResources": {
+    "type": "EC2",
+    "instanceTypes": ["g5.xlarge"],
+    "minvCpus": 0,
+    "maxvCpus": 16,
+    "desiredvCpus": 4,
+    "subnets": [
+      "subnet-0ded8ee2cc6112b8c",
+      "subnet-0afb03c5e809b480b",
+      "subnet-00fe6abe529d766aa"
+    ], 
+    "securityGroupIds": ["sg-d0aeaf83"],
+	"instanceRole": "ECSInstanceRole"
+  },
+  "serviceRole": "AWSBatchServiceRole"
+}

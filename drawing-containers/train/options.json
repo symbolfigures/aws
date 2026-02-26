@@ -1,0 +1,11 @@
+{
+	"dataset_file_pattern": "./tfrecord/*.tfrecord",
+	"resolution": 256,
+	"replica_batch_size": 16,
+	"epoch_sample_count": 4096,
+	"total_sample_count": 4194304,
+	"learning_rate": 0.002,
+	"latent_size": 64,
+	"beta_1": 0.0,
+	"beta_2": 0.99
+}

@@ -1,0 +1,35 @@
+{
+	"jobDefinitionName": "job_def_drawing_rotateflip",
+	"type": "container",
+	"platformCapabilities": ["FARGATE"],
+	"containerProperties": {
+		"image": "476322507760.dkr.ecr.us-west-2.amazonaws.com/drawing_rotateflip:latest",
+		"jobRoleArn": "arn:aws:iam::476322507760:role/ECSTaskRole-S3",
+		"executionRoleArn": "arn:aws:iam::476322507760:role/ECSTaskExecutionRole",
+		"resourceRequirements": [
+			{
+				"value": "1",
+				"type": "VCPU"
+			},
+			{
+				"value": "2048",
+				"type": "MEMORY"
+			}
+		],
+        "networkConfiguration": {
+            "assignPublicIp": "ENABLED"
+        },
+		"logConfiguration": {
+			"logDriver": "awslogs",
+			"options": {
+				"awslogs-group": "/aws/batch/job",
+				"awslogs-region": "us-west-2",
+				"awslogs-stream-prefix": "batch"
+			}
+		},
+		"environment": [
+		    {"name": "BUCKET", "value": "symbolfigures"},
+		    {"name": "KEY_PREFIX", "value": "drawing/tile/secondstudy"}
+		]
+	}
+}

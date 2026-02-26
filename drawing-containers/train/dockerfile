@@ -1,0 +1,5 @@
+FROM tensorflow/tensorflow:2.17.0-gpu
+WORKDIR /app
+COPY layers.py main.py models.py serialize.py tensor_ops.py train.py training_loop.py /app/
+RUN pip install boto3 tensorflow[and-cuda] tf-keras
+ENTRYPOINT ["python", "main.py"]
