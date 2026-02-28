@@ -1,0 +1,237 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Two VPCs (dev and prod), each with 3 public and 3 private subnets, IG, and RTs.'
+
+Parameters:
+
+  AvailabilityZoneA:
+    Type: AWS::EC2::AvailabilityZone::Name
+    Description: AZ for first pair of public and private subnets.
+
+  AvailabilityZoneB:
+    Type: AWS::EC2::AvailabilityZone::Name
+    Description: AZ for first pair of public and private subnets.
+
+  AvailabilityZoneC:
+    Type: AWS::EC2::AvailabilityZone::Name
+    Description: AZ for first pair of public and private subnets.
+
+Resources:
+
+  # PROD --------------------------------------
+
+  ProdVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: '10.0.0.0/16'
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        -  Key: Name
+           Value: vpc-prod
+
+  ProdIg:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: ig-prod
+
+  ProdAttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref ProdVpc
+      InternetGatewayId: !Ref ProdIg
+
+  # A
+
+  ProdSubnetPublicA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.0.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneA
+      Tags:
+        - Key: Name
+          Value: sn-prod-pub-a
+
+  ProdSubnetPrivateA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.32.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneA
+      Tags:
+        - Key: Name
+          Value: sn-prod-pri-a
+
+  # B
+
+  ProdSubnetPublicB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.1.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneB
+      Tags:
+        - Key: Name
+          Value: sn-prod-pub-b
+
+  ProdSubnetPrivateB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.64.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneB
+      Tags:
+        - Key: Name
+          Value: sn-prod-pri-b
+
+  # C
+
+  ProdSubnetPublicC:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.2.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneC
+      Tags:
+        - Key: Name
+          Value: sn-prod-pub-c
+
+  ProdSubnetPrivateC:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref ProdVpc
+      CidrBlock: '10.0.96.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneC
+      Tags:
+        - Key: Name
+          Value: sn-prod-pri-c
+
+  # DEV --------------------------------------
+
+  DevVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: '10.1.0.0/16'
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: vpc-dev
+
+  DevIg:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: ig-dev
+
+  DevAttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref DevVpc
+      InternetGatewayId: !Ref DevIg
+
+  # A
+
+  DevSubnetPublicA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.0.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneA
+      Tags:
+        - Key: Name
+          Value: sn-dev-pub-a
+
+  DevSubnetPrivateA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.32.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneA
+      Tags:
+        - Key: Name
+          Value: sn-dev-pri-a
+
+  # B
+
+  DevSubnetPublicB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.1.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneB
+      Tags:
+        - Key: Name
+          Value: sn-dev-pub-b
+
+  DevSubnetPrivateB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.64.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneB
+      Tags:
+        - Key: Name
+          Value: sn-dev-pri-b
+
+  # C
+
+  DevSubnetPublicC:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.2.0/24'
+      AvailabilityZone: !Ref AvailabilityZoneC
+      Tags:
+        - Key: Name
+          Value: sn-dev-pub-c
+
+  DevSubnetPrivateC:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DevVpc
+      CidrBlock: '10.1.96.0/21'
+      AvailabilityZone: !Ref AvailabilityZoneC
+      Tags:
+        - Key: Name
+          Value: sn-dev-pri-c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
