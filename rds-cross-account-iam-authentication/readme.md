@@ -39,16 +39,9 @@ $ exit
 
 ### 1.3. Connect
 
-Run MySQL Workbench and create a new connection.
+Run MySQL Workbench and create a new connection with method "Standard TCP/IP over SSH".
 
-Connection Name: ...  
-Connection Method: Standard TCP/IP over SSH  
-SSH Hostname: 22.33.44.55  
-SSH Username: ec2-user  
-SSH Key File: ...  
-MySQL Hostname: database-1.abcdef123456.us-west-2.rds.amazonaws.com  
-Username: admin  
-Password: ...  
+![connection](connection.png)
 
 Error: `Could not store password: The name is not activatable`  
 Install a keyring. `$ sudo pacman -S gnome-keyring`
