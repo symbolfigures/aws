@@ -1,6 +1,6 @@
 # Protect the Raspberry Pi
 
-![](diagram.drawio.png)
+![diagram](diagram.drawio.png)
 
 **Scenario:**
 A public web server runs on a Raspberry Pi (RPI) on a home network. A SOHO router forwards all HTTP(S) traffic to the RPI. Legitimate users access the web server using the subdomain `rpi.nicewebsite.net`. This is linked from `nicewebsite.net`, which is an S3 static website behind a CloudFront distribution.
