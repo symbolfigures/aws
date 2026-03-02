@@ -29,7 +29,7 @@ The bucket has an object `index.html`, which is used as the default home page. T
 
 ### CloudFront
 
-The CloudFront distribution has the domain name `d1fen5savms0fv.cloudfront.net`. In Route 53, a public hosted zone for `nicewebsite.net` has an A Alias record that points to the distribution.
+The CloudFront distribution has the domain name `xxxxxxxxxxxxxx.cloudfront.net`. In Route 53, a public hosted zone for `nicewebsite.net` has an A Alias record that points to the distribution.
 
 The distribution has an Origin of type "S3 static website" with the S3 website's domain. The default Behavior uses this origin, meaning CloudFront looks in the bucket for any files that the client requests.
 
