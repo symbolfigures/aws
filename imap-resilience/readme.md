@@ -21,14 +21,14 @@ Here are a few details on how the mail server functions in its current state.
 ### SES & S3
 
 - Simple Email Service (SES) receives the mail and puts it in an S3 bucket.
-- A script on the EC2 instance periodically fetches mail from the bucket and puts it in the Dovecot mail server's mailbox directory.
+- A script on the EC2 instance periodically fetches mail from the bucket and puts it in the mail server's mailbox directory.
 - The mail server is only used for receiving mail. Email clients connect directly to SES to send mail.
 
 ### EC2
 
 - The instance runs Amazon Linux 2023, configured with Dovecot and SSL certificates.
 - The instance is saved as an Amazon Machine Image (AMI).
-- The security group allows inbound port 993 from anywhere (IPv4).
+- The security group allows inbound port 993 from anywhere.
 - The EC2 instance profile allows it to read from the S3 bucket.
 - An elastic IP is attached.
 
@@ -43,7 +43,7 @@ Here are a few details on how the mail server functions in its current state.
 
 ## 2. Replace the unhealthy instance
 
-Half of the solution is replacing the instance when it's unhealthy, and this functionality comes out of the box with an ASG.
+Half of the solution is replacing the instance when it's unhealthy, and this functionality comes out of the box with the ASG.
 
 ### ASG
 
