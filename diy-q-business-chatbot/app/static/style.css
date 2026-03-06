@@ -1,0 +1,25 @@
+div[data-testid='stToolbar'] {
+	visibility: hidden;
+	height: 0%;
+	position: fixed;
+}
+div[data-testid='stStatusWidget'] {
+	visibility: hidden;
+	height: 0%;
+	position: fixed;
+}
+body {
+    font-family: 'ComputerModern', serif;
+b, strong {
+    font-family: 'ComputerModern', serif;
+	font-weight: bold;
+}
+i, em {
+    font-family: 'ComputerModern', serif;
+	font-style: italic;
+}
+b i, strong em, b em, strong i {
+    font-family: 'ComputerModern', serif;
+	font-weight: bold;
+	font-style: italic;
+}
