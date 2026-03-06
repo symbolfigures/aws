@@ -1,5 +1,7 @@
 # DIY Q Business Chatbot
 
+![diagram](diagram.drawio.png)
+
 **Scenario:**
 You want a RAG chatbot to answer questions about a vast trove of company documentation. Q Business offers exactly the user interface you're looking for. You also have the time and expertise to try building and hosting a self-managed application.
 
@@ -152,15 +154,13 @@ The owl avatars were generated using [FLUX](https://github.com/black-forest-labs
 
 ### 4. Infrastructure
 
-The app runs in a Docker image on ECS Fargate. The image is stored in Elastic Container Registry. Users connect directly over HTTPS using a subdomain registered in a Route 53 public hosted zone.
+The app runs in a Docker container on a single EC2 instance, and users connect to it through the Route 53 DNS. An SSL certificate is configured for HTTPS traffic.
 
-Logs are uploaded to an S3 bucket, which can then be crawled by a Glue crawler and queried in Athena.
+The amazon-cloudwatch-agent sends Nginx server logs to a CloudWatch log group. A Lambda function is subscribed, and dumps logs in an S3 bucket in a partitioned manner, which can then be crawled by a Glue crawler and queried in Athena.
 
+A log for every question, answer and feedback is sent directly to S3 using the same partition structure.
 
-
-
-
-
+A CloudWatch alarm sends a notification via SNS topic if a request rate limit is breached, and stops the server if a higher rate limit is breached.
 
 
 
