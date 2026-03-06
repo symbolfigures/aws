@@ -12,7 +12,7 @@ Q Business [pricing](https://aws.amazon.com/q/business/pricing/) is kind of expe
 Do it yourself!
 
 **Implementation:**
-Build an app using Streamlit for the UI, LangChain and FAISS for RAG, Bedrock for the foundation model, and EC2 to host the app.
+Build an app using Streamlit for the UI, LangChain and FAISS for RAG, Bedrock for the foundation model, and Fargate to host the app.
 
 
 -----
