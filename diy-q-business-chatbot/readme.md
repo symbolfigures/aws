@@ -1,6 +1,5 @@
 # DIY Q Business Chatbot
 
-![diagram](diagram.drawio.png)
 
 **Scenario:**
 You want a RAG chatbot to answer questions about a vast trove of company documentation. Q Business offers exactly the user interface you're looking for. You also have the time and expertise to try building and hosting a self-managed application.
@@ -160,7 +159,7 @@ The amazon-cloudwatch-agent sends Nginx access and error logs to a CloudWatch lo
 
 Interaction logs are sent directly to S3 in a partitioned manner, which can then be crawled by a Glue crawler and queried in Athena.
 
-
+![diagram](diagram.drawio.png)
 
 
 
