@@ -1,4 +1,4 @@
-#!/bin/bash
+# Not intended to be run as a script. Copy/paste commands one section at a time.
 
 
 # AMI SETUP
