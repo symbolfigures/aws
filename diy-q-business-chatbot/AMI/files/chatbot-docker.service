@@ -1,0 +1,12 @@
+[Unit]
+Description=chatbot container
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a chatbot
+ExecStop=/usr/bin/docker stop chatbot
+
+[Install]
+WantedBy=multi-user.target

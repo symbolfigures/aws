@@ -1,0 +1,9 @@
+[Unit]
+Description=runs script that renews ssl certificate
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

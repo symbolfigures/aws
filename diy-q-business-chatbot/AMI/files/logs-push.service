@@ -1,0 +1,10 @@
+[Unit]
+Description=push logs to s3
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/logs-push.sh
+
+[Install]
+WantedBy=multi-user.target

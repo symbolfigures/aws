@@ -1,0 +1,31 @@
+[nginx-bad-request]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 5
+findtime = 3600
+bantime = 86400
+
+[nginx-botsearch]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 1
+findtime = 3600
+bantime = 86400
+
+[nginx-forbidden]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 3
+findtime = 3600
+bantime = 86400
+
+[nginx-limit-req]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 3
+findtime = 3600
+bantime = 86400

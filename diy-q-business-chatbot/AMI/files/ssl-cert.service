@@ -1,0 +1,7 @@
+[Unit]
+Description=renew ssl certificate
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ssl-cert.sh

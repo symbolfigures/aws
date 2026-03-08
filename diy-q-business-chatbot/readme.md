@@ -140,7 +140,7 @@ The textual response is returned from the API call. The GUID strings are replace
 
 #### Logging
 
-Each question is logged. The log includes the question, answer, and unique ID. If the user provides feedback (thumbs up or down), then the same log is overwritten with the feedback included ([example](example_log.json)).
+Each interaction is logged. The log includes the question, answer, and unique ID. If the user provides feedback (thumbs up or down), then the same log is overwritten with the feedback included ([example](example_log.json)).
 
 ### 3. User Interface
 
@@ -154,13 +154,11 @@ The owl avatars were generated using [FLUX](https://github.com/black-forest-labs
 
 ### 4. Infrastructure
 
-The app runs in a Docker container on a single EC2 instance, and users connect to it through the Route 53 DNS. An SSL certificate is configured for HTTPS traffic.
+The [app](app) runs in a Docker container on a single EC2 instance. The instance has a custom [AMI](AMI) configured with a TLS certificate, Nginx web server, robots.txt file, fail2ban, and iptables.
 
-The amazon-cloudwatch-agent sends Nginx server logs to a CloudWatch log group. A Lambda function is subscribed, and dumps logs in an S3 bucket in a partitioned manner, which can then be crawled by a Glue crawler and queried in Athena.
+The amazon-cloudwatch-agent sends Nginx access and error logs to a CloudWatch log group.
 
-A log for every question, answer and feedback is sent directly to S3 using the same partition structure.
-
-A CloudWatch alarm sends a notification via SNS topic if a request rate limit is breached, and stops the server if a higher rate limit is breached.
+Interaction logs are sent directly to S3 in a partitioned manner, which can then be crawled by a Glue crawler and queried in Athena.
 
 
 

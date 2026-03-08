@@ -1,0 +1,12 @@
+[Unit]
+Description=restore iptables and ipset rules
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '/sbin/ipset destroy; /sbin/ipset restore < /etc/sysconfig/ipset'
+ExecStart=/bin/sh -c '/sbin/iptables-restore < /etc/sysconfig/iptables'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
