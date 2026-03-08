@@ -153,7 +153,9 @@ The owl avatars were generated using [FLUX](https://github.com/black-forest-labs
 
 ### 4. Infrastructure
 
-The [app](app) runs in a Docker container on a single EC2 instance. The instance has a custom [AMI](AMI) configured with a TLS certificate, Nginx web server, robots.txt file, fail2ban, and iptables.
+The [app](app) runs in a Docker container on a single EC2 instance.
+
+The instance has a custom [AMI](AMI) configured with a TLS certificate, Nginx web server, robots.txt file, fail2ban, and iptables.
 
 The amazon-cloudwatch-agent sends Nginx access and error logs to a CloudWatch log group.
 
