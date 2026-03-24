@@ -21,7 +21,7 @@ col1A, col1B, col1C = st.columns([1, 2, 1])
 col1C.markdown('''<p style="font-family: monospace; text-align:right"></p>''', unsafe_allow_html=True)
 # title
 st.write('''
-# RAG Chatbot
+# Seller Central Help Pages
 Check sources for accuracy.
 ''')
 

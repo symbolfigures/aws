@@ -1,14 +1,56 @@
 [
     {
-		"guid": 0,
-		"filename": "bitloops.pdf",
-		"title": "Bitloops",
-		"url": "https://symbolfigures.io/bitloops.html"
+		"guid": "202111490",
+		"filename": "202111490.pdf",
+		"title": "Amazon Deals",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/202111490"
     },
 	{
-		"guid": 1,
-		"filename": "coincidence.pdf",
-		"title": "Coincidence",
-		"url": "https://symbolfigures.io/coincidence/coincidence.pdf"
+		"guid": "G202111550",
+		"filename": "G202111550.pdf",
+		"title": "Create a Deal",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/G202111550"
+	},
+	{
+		"guid": "G202111570",
+		"filename": "G202111570.pdf",
+		"title": "Monitor deals",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/G202111570"
+	},
+	{
+		"guid": "G202111590",
+		"filename": "G202111590.pdf",
+		"title": "Understand deal fees",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/G202111590"
+	},
+	{
+		"guid": "G202111610",
+		"filename": "G202111610.pdf",
+		"title": "Cancel a deal",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/G202111610"
+	},
+	{
+		"guid": "G202183600",
+		"filename": "G202183600.pdf",
+		"title": "Deals for events",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/G202183600"
+	},
+	{
+		"guid": "GKN9A84DGTYWYHWY",
+		"filename": "GKN9A84DGTYWYHWY.pdf",
+		"title": "Troubleshooting suppressed and active Deals",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/GKN9A84DGTYWYHWY"
+	},
+	{
+		"guid": "GFXXXKMMQE9WLVNZ",
+		"filename": "GFXXXKMMQE9WLVNZ.pdf",
+		"title": "Prime Exclusive Deals",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/GFXXXKMMQE9WLVNZ"
+	},
+	{
+		"guid": "GFQCDTDE2HV9NMVV",
+		"filename": "GFQCDTDE2HV9NMVV.pdf",
+		"title": "Reference pricing and promotions FAQ",
+		"url": "https://sellercentral.amazon.com/help/hub/reference/external/GFQCDTDE2HV9NMVV"
 	}
 ]

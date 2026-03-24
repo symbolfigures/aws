@@ -120,7 +120,7 @@ def retrieve_context_and_rerank(vectors, question):
 def format_footnotes(guid_strs):
 	footnotes = []
 	for i, gs in enumerate(guid_strs):
-		guid = int(gs[1:])
+		guid = str(gs[1:])
 		with open(f'data/metadata.json', 'r') as f:
 			metadata = json.load(f)
 		title = 'Title not found.'

@@ -7,7 +7,7 @@ You want a RAG chatbot to answer questions about a vast trove of company documen
 **Problem:**
 Q Business [pricing](https://aws.amazon.com/q/business/pricing/) is kind of expensive. 
 - Q Business Lite is \$3 per user/mo.
-- Starter Index is \\$0.140 per hour for one unit, or \$102.20 per month.
+- Starter Index is \$0.140 per hour for one unit, or \$102.20 per month.
 
 **Solution:**
 Do it yourself!
@@ -59,7 +59,7 @@ Sync the data source. Once it's complete, go back to the application dashboard a
 
 Ask a question pertaining to the document. The answer has footnotes, uses the metadata to link to the source webpage, and has a thumbs up/down for feedback.
 
-![q-business-1](q-business.png)
+![q-business-schp](q-business-schp.png)
 
 
 -----
@@ -149,7 +149,7 @@ The user interface runs on Streamlit. It's a nice prepackaged chat interface wit
 
 The owl avatars were generated using [FLUX](https://github.com/black-forest-labs/flux).
 
-![diy-chatbot-1](diy-chatbot.png)
+![diy-chatbot-schp](diy-chatbot-schp.png)
 
 ### 4. Infrastructure
 
