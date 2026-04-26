@@ -1,0 +1,10 @@
+# Python environment
+.venv/
+
+# Generated output
+gen/
+
+# Training artifacts
+train/checkpoints/
+train/options_test.json
+train/support_request

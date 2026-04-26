@@ -1,0 +1,12 @@
+# Sensitive / not-redacted
+AMI/not-redacted/
+
+# Application artifacts
+app/.venv/
+app/data/pdf/
+app/data/vectors/
+
+# Working files
+notes
+q-business/
+schp-chatbot/
